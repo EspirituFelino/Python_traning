@@ -2,6 +2,9 @@
 from selenium import webdriver
 import unittest
 
+from selenium.webdriver.firefox.webdriver import WebDriver
+
+
 class TestAddGroup(unittest.TestCase):
     def setUp(self):
         self.wd = webdriver.Firefox()
@@ -9,15 +12,24 @@ class TestAddGroup(unittest.TestCase):
     
     def test_add_group(self):
         wd = self.wd
-        wd.get("http://localhost/addressbook/")
-        wd.find_element_by_name("user").click()
-        wd.find_element_by_name("user").clear()
-        wd.find_element_by_name("user").send_keys("admin")
-        wd.find_element_by_name("pass").clear()
-        wd.find_element_by_name("pass").send_keys("secret")
-        wd.find_element_by_css_selector("input[type=\"submit\"]").click()
+        self.open_home_page(wd)
+        self.login(wd)
+        self.open_groups_page(wd)
+        self.create_group(wd)
+        self.return_to_groups_page(wd)
+        self.logout(wd)
+
+    def logout(self, wd: WebDriver):
+        # logout
+        wd.find_element_by_link_text("Logout").click()
+
+    def return_to_groups_page(self, wd: WebDriver):
         wd.find_element_by_link_text("groups").click()
+
+    def create_group(self, wd: WebDriver):
+        # init group creation
         wd.find_element_by_name("new").click()
+        # fill group firm
         wd.find_element_by_name("group_name").click()
         wd.find_element_by_name("group_name").clear()
         wd.find_element_by_name("group_name").send_keys("asdfsadf")
@@ -27,9 +39,22 @@ class TestAddGroup(unittest.TestCase):
         wd.find_element_by_name("group_footer").click()
         wd.find_element_by_name("group_footer").clear()
         wd.find_element_by_name("group_footer").send_keys("qwefsadc")
+        # submit group creation
         wd.find_element_by_name("submit").click()
+
+    def open_groups_page(self, wd: WebDriver):
         wd.find_element_by_link_text("groups").click()
-        wd.find_element_by_link_text("Logout").click()
+
+    def login(self, wd: WebDriver):
+        wd.find_element_by_name("user").click()
+        wd.find_element_by_name("user").clear()
+        wd.find_element_by_name("user").send_keys("admin")
+        wd.find_element_by_name("pass").clear()
+        wd.find_element_by_name("pass").send_keys("secret")
+        wd.find_element_by_css_selector("input[type=\"submit\"]").click()
+
+    def open_home_page(self, wd: WebDriver):
+        wd.get("http://localhost/addressbook/")
 
     def tearDown(self):
         self.wd.quit()
