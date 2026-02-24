@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
-from selenium.webdriver.support.ui import Select
+from selenium.webdriver.firefox.webdriver import WebDriver
 import unittest
+from contact import Contact
 
 class UntitledTestCase(unittest.TestCase):
     def setUp(self):
@@ -10,37 +11,44 @@ class UntitledTestCase(unittest.TestCase):
     
     def test_untitled_test_case(self):
         wd = self.wd
-        wd.get("http://localhost/addressbook/")
-        wd.find_element_by_name("user").click()
-        wd.find_element_by_name("user").clear()
-        wd.find_element_by_name("user").send_keys("admin")
-        wd.find_element_by_name("pass").clear()
-        wd.find_element_by_name("pass").send_keys("secret")
-        wd.find_element_by_id("LoginForm").submit()
+        self.open_home_page(wd)
+        self.login(wd, "admin", "secret")
+        self.create_contact(wd, Contact(first_name='1', last_name="sdtgvbd", home="24532462456", email="fdger5ty4wt2@"))
+        self.return_home_page(wd)
+        self.logout(wd)
+
+    def logout(self, wd: WebDriver):
+        wd.find_element_by_link_text("Logout").click()
+
+    def return_home_page(self, wd: WebDriver):
+        wd.find_element_by_link_text("home").click()
+
+    def create_contact(self, wd: WebDriver, contact):
         wd.find_element_by_link_text("add new").click()
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
-        wd.find_element_by_name("firstname").send_keys("1")
+        wd.find_element_by_name("firstname").send_keys(contact.first_name)
         wd.find_element_by_name("lastname").click()
         wd.find_element_by_name("lastname").clear()
-        wd.find_element_by_name("lastname").send_keys("sdtgvbd")
+        wd.find_element_by_name("lastname").send_keys(contact.last_name)
         wd.find_element_by_name("home").click()
         wd.find_element_by_name("home").clear()
-        wd.find_element_by_name("home").send_keys("24532462456")
+        wd.find_element_by_name("home").send_keys(contact.home)
         wd.find_element_by_name("email").click()
         wd.find_element_by_name("email").clear()
-        wd.find_element_by_name("email").send_keys("fdger5ty4wt2@")
-        Select(wd.find_element_by_name("bday")).select_by_visible_text("25")
-        wd.find_element_by_xpath("//option[@value='25']").click()
-        wd.find_element_by_name("bmonth").click()
-        Select(wd.find_element_by_name("bmonth")).select_by_visible_text("October")
-        wd.find_element_by_xpath("//option[@value='October']").click()
-        wd.find_element_by_name("byear").click()
-        wd.find_element_by_name("byear").clear()
-        wd.find_element_by_name("byear").send_keys("2345")
+        wd.find_element_by_name("email").send_keys(contact.email)
         wd.find_element_by_xpath("//input[19]").click()
-        wd.find_element_by_link_text("home").click()
-        wd.find_element_by_link_text("Logout").click()
+
+    def login(self, wd: WebDriver, username, password):
+        wd.find_element_by_name("user").click()
+        wd.find_element_by_name("user").clear()
+        wd.find_element_by_name("user").send_keys(username)
+        wd.find_element_by_name("pass").clear()
+        wd.find_element_by_name("pass").send_keys(password)
+        wd.find_element_by_id("LoginForm").submit()
+
+    def open_home_page(self, wd: WebDriver):
+        wd.get("http://localhost/addressbook/")
 
     def tearDown(self):
         self.wd.quit()
