@@ -11,10 +11,8 @@ class UntitledTestCase(unittest.TestCase):
     
     def test_untitled_test_case(self):
         wd = self.wd
-        self.open_home_page(wd)
         self.login(wd, "admin", "secret")
         self.create_contact(wd, Contact(first_name='1', last_name="sdtgvbd", home="24532462456", email="fdger5ty4wt2@"))
-        self.return_home_page(wd)
         self.logout(wd)
 
     def logout(self, wd: WebDriver):
@@ -38,8 +36,10 @@ class UntitledTestCase(unittest.TestCase):
         wd.find_element_by_name("email").clear()
         wd.find_element_by_name("email").send_keys(contact.email)
         wd.find_element_by_xpath("//input[19]").click()
+        self.return_home_page(wd)
 
     def login(self, wd: WebDriver, username, password):
+        self.open_home_page(wd)
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys(username)
