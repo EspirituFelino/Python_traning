@@ -1,0 +1,11 @@
+from model.contact import Contact
+
+def test_edit_first_contact(app):
+    app.session.login(username="admin", password="secret")
+    app.contact.edit_first_contact(Contact(first_name='FN', last_name="LN", home="HOME", email="EMAIL@"))
+    app.session.logout()
+
+def test_edit_first_contact_to_empty(app):
+    app.session.login(username="admin", password="secret")
+    app.contact.edit_first_contact(Contact(first_name='', last_name="", home="", email=""))
+    app.session.logout()
