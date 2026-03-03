@@ -51,3 +51,4 @@ class ContactHelper:
         wd.find_element_by_name("email").send_keys(contact.email)
         #submit changes
         wd.find_element_by_name("update").click()
+        self.app.return_home_page()
