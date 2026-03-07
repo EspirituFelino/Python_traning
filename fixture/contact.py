@@ -5,19 +5,15 @@ class ContactHelper:
 
     def fill_contact_form(self, contact):
         wd = self.app.wd
-        #fill contact form
-        wd.find_element_by_name("firstname").click()
-        wd.find_element_by_name("firstname").clear()
-        wd.find_element_by_name("firstname").send_keys(contact.first_name)
-        wd.find_element_by_name("lastname").click()
-        wd.find_element_by_name("lastname").clear()
-        wd.find_element_by_name("lastname").send_keys(contact.last_name)
-        wd.find_element_by_name("home").click()
-        wd.find_element_by_name("home").clear()
-        wd.find_element_by_name("home").send_keys(contact.home)
-        wd.find_element_by_name("email").click()
-        wd.find_element_by_name("email").clear()
-        wd.find_element_by_name("email").send_keys(contact.email)
+        self.app.change_field_value("firstname", contact.first_name)
+        self.app.change_field_value("middlename", contact.middle_name)
+        self.app.change_field_value("lastname", contact.last_name)
+        self.app.change_field_value("title", contact.title)
+        self.app.change_field_value("company", contact.company)
+        self.app.change_field_value("address", contact.address)
+        self.app.change_field_value("home", contact.home)
+        self.app.change_field_value("email", contact.email)
+
 
     def create(self, contact):
         wd = self.app.wd
