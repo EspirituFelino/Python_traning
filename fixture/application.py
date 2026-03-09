@@ -8,7 +8,7 @@ from fixture.session import SessionHelper
 class Application:
     def __init__(self):
         self.wd = webdriver.Firefox()
-        self.wd.implicitly_wait(3)
+        self.wd.implicitly_wait(0.3)
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
         self.contact = ContactHelper(self)
@@ -17,11 +17,12 @@ class Application:
         self.wd.quit()
 
     def return_home_page(self):
-        self.wd.find_element_by_link_text("home").click()
+        if not self.wd.current_url == "http://localhost/addressbook/":
+            self.wd.find_element_by_link_text("home").click()
 
     def open_home_page(self):
-        wd = self.wd
-        wd.get("http://localhost/addressbook/")
+        if not self.wd.current_url == "http://localhost/addressbook/":
+            self.wd.get("http://localhost/addressbook/")
 
     def change_field_value(self, field_name, text):
         wd = self.wd
