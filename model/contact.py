@@ -41,13 +41,14 @@ class Contact:
     def clear_like_homepage(self,s):
         return re.sub("[() -]", "", s)
 
+    def filter_empty_fields(self,lst):
+        return filter(lambda x: x != '',
+                      filter(lambda x: x is not None,
+                             lst))
+
     def merge_phones_like_homepage(self):
-        return "\n".join(filter(lambda x: x != '',
-                                map(lambda x: self.clear_like_homepage(x),
-                                    filter(lambda x: x is not None,
-                                           [self.homephone, self.mobilephone, self.workphone, self.secondaryphone]))))
+        return "\n".join(map(lambda x: self.clear_like_homepage(x),
+                             self.filter_empty_fields([self.homephone, self.mobilephone, self.workphone, self.secondaryphone])))
 
     def merge_emails_like_homepage(self):
-        return "\n".join(filter(lambda x: x != '',
-                                    filter(lambda x: x is not None,
-                                           [self.email, self.email2, self.email3])))
+        return "\n".join(self.filter_empty_fields([self.email, self.email2, self.email3]))
