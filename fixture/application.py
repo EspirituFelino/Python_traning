@@ -1,5 +1,6 @@
+import random
+import string
 from selenium import webdriver
-
 from fixture.contact import ContactHelper
 from fixture.group import GroupHelper
 from fixture.session import SessionHelper
@@ -37,3 +38,7 @@ class Application:
             return True
         except:
             return False
+
+def random_string(prefix, maxlen):
+    symbols = string.ascii_letters + string.digits + string.punctuation + " "*10
+    return prefix + ''.join([random.choice(symbols) for i in range(random.randrange(maxlen))])

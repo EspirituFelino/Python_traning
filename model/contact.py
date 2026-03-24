@@ -7,31 +7,36 @@ class Contact:
     def __init__(self, first_name=None, middle_name=None, last_name=None, homephone=None,
                  email=None, email2=None, email3=None, company=None, title=None, address=None, id=None, phones=None,
                  workphone=None, mobilephone=None, secondaryphone=None,
+                 homepage=None, nickname=None,
                  all_phones_from_homepage=None, all_emails_from_homepage=None):
+        self.id = id
         self.first_name = first_name
+        self.middle_name = middle_name
         self.last_name = last_name
-        self.email = email
-        self.email2 = email2
-        self.email3 = email3
-        self.homephone = homephone
+        self.nickname = nickname
         self.company = company
         self.title = title
         self.address = address
-        self.middle_name = middle_name
-        self.phones = phones
-        self.id = id
+        self.homephone = homephone
         self.workphone = workphone
         self.mobilephone = mobilephone
         self.secondaryphone = secondaryphone
+        self.email = email
+        self.email2 = email2
+        self.email3 = email3
+        self.homepage = homepage
+        self.phones = phones
         self.all_phones_from_homepage = all_phones_from_homepage
         self.all_emails_from_homepage = all_emails_from_homepage
 
 
     def __repr__(self):
-        return f'{self.id}: {self.first_name} {self.last_name}'
+        return f'{self.id}: {self.first_name};{self.last_name};{self.address};{self.homephone}'
 
     def __eq__(self, other):
-        return (self.id is None or other.id is None or self.id == other.id) and self.first_name == other.first_name and self.last_name == other.last_name
+        return ((self.id is None or other.id is None or self.id == other.id)
+                and self.first_name == other.first_name
+                and self.last_name == other.last_name)
 
     def id_or_max(self):
         if self.id:

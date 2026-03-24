@@ -13,11 +13,17 @@ class ContactHelper:
         self.app.change_field_value("firstname", contact.first_name)
         self.app.change_field_value("middlename", contact.middle_name)
         self.app.change_field_value("lastname", contact.last_name)
+        self.app.change_field_value("nickname", contact.nickname)
         self.app.change_field_value("title", contact.title)
         self.app.change_field_value("company", contact.company)
         self.app.change_field_value("address", contact.address)
         self.app.change_field_value("home", contact.homephone)
+        self.app.change_field_value("mobile", contact.mobilephone)
+        self.app.change_field_value("work", contact.workphone)
         self.app.change_field_value("email", contact.email)
+        self.app.change_field_value("email2", contact.email2)
+        self.app.change_field_value("email3", contact.email3)
+        self.app.change_field_value("homepage", contact.homepage)
 
 
     def create(self, contact):
