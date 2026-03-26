@@ -7,12 +7,20 @@ from fixture.session import SessionHelper
 
 
 class Application:
-    def __init__(self):
-        self.wd = webdriver.Firefox()
+    def __init__(self, browser, base_url):
+        if browser == "firefox":
+            self.wd = webdriver.Firefox()
+        elif browser == "chrome":
+            self.wd = webdriver.Chrome()
+        elif browser == "ie":
+            self.wd = webdriver.Ie()
+        else:
+            raise ValueError(f"Invalid browser {browser}")
         self.wd.implicitly_wait(0.3)
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
         self.contact = ContactHelper(self)
+        self.base_url = base_url
 
     def destroy(self):
         self.wd.quit()
@@ -22,8 +30,8 @@ class Application:
             self.wd.find_element_by_link_text("home").click()
 
     def open_home_page(self):
-        if not self.wd.current_url == "http://localhost/addressbook/":
-            self.wd.get("http://localhost/addressbook/")
+        if not self.wd.current_url == self.base_url:
+            self.wd.get(self.base_url)
 
     def change_field_value(self, field_name, text):
         wd = self.wd
