@@ -1,15 +1,8 @@
 # -*- coding: utf-8 -*-
 import pytest
-from fixture.application import random_string
+from data.add_group import test_data
 from model.group import Group
 
-
-test_data = [
-    Group(name=name, header=header, footer=footer)
-    for name in ["", random_string("name", 10)]
-    for header in ["", random_string("header", 10)]
-    for footer in ["", random_string("footer", 10)]
-]
 
 @pytest.mark.parametrize("group", test_data, ids=[repr(x) for x in test_data])
 
