@@ -1,4 +1,4 @@
-import json
+import jsonpickle
 from fixture.application import random_string
 from model.group import Group
 import os.path
@@ -31,4 +31,5 @@ test_data = [Group(name="", header="", footer="")] + [
 file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", f)
 
 with open(file_path, "w") as groups_file:
-    groups_file.write(json.dumps(test_data, default=lambda x: x.__dict__, indent=2))
+    jsonpickle.set_encoder_options("json", indent=2)
+    groups_file.write(jsonpickle.encode(test_data))
