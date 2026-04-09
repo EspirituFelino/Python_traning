@@ -6,6 +6,7 @@ import jsonpickle
 import pytest
 from fixture.application import Application
 from fixture.db import DbFixture
+from fixture.orm import ORMFixture
 
 fixture = None
 target = None
@@ -36,7 +37,7 @@ def check_ui(request):
 @pytest.fixture(scope="session")
 def db(request):
     db_config = load_confiig(request.config.getoption("--target"))["db"]
-    db_fixture = DbFixture(host=db_config["host"], name=db_config["name"],
+    db_fixture = ORMFixture(host=db_config["host"], name=db_config["name"],
                            user=db_config["user"], password=db_config["password"])
     def fin():
         db_fixture.destroy()

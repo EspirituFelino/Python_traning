@@ -32,6 +32,9 @@ class ORMFixture:
         self.db.generate_mapping()
         sql_debug(True)
 
+    def destroy(self):
+        pass
+
     def convert_groups_to_model(self, groups):
         def convert_group(group):
             return Group(id=str(group.id), name=group.name, header=group.header, footer=group.footer)

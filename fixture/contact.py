@@ -37,6 +37,9 @@ class ContactHelper:
         self.app.return_home_page()
         self.contacts_cache = None
 
+    def delete_first_contact(self):
+        self.delete_contact_by_index(0)
+
     def delete_contact_by_index(self, index):
         wd = self.app.wd
         self.app.return_home_page()
@@ -46,12 +49,22 @@ class ContactHelper:
         self.app.return_home_page()
         self.contacts_cache = None
 
-    def delete_first_contact(self):
-        self.delete_contact_by_index(0)
-
     def select_contact_by_index(self, index):
         wd = self.app.wd
         wd.find_elements_by_name("selected[]")[index].click()
+
+    def delete_contact_by_id(self, id):
+        wd = self.app.wd
+        self.app.return_home_page()
+        self.select_contact_by_id(id)
+        #delete contact
+        wd.find_element_by_name("delete").click()
+        self.app.return_home_page()
+        self.contacts_cache = None
+
+    def select_contact_by_id(self, id):
+        wd = self.app.wd
+        wd.find_element_by_css_selector(f'input[value="{id}"]').click()
 
     def edit_contact_by_index(self, contact, index):
         wd = self.app.wd
@@ -62,6 +75,22 @@ class ContactHelper:
         wd.find_element_by_name("update").click()
         self.app.return_home_page()
         self.contacts_cache = None
+
+    def edit_contact_by_id(self, contact, id):
+        wd = self.app.wd
+        self.app.return_home_page()
+        self.init_edit_contact_by_id(id)
+        self.fill_contact_form(contact)
+        #submit changes
+        wd.find_element_by_name("update").click()
+        self.app.return_home_page()
+        self.contacts_cache = None
+
+    def init_edit_contact_by_id(self, id):
+        wd = self.app.wd
+        # wd.find_elements_by_xpath("//img[@alt='Edit']")[index].click()
+        # wd.find_element_by_xpath(f"//input[@value={id}]/..//img[@alt='Edit']").click()
+        wd.find_element_by_xpath(f"//tr[.//input[@value='{id}']]//img[@alt='Edit']").click()
 
     def edit_first_contact(self):
         self.edit_contact_by_index(0)

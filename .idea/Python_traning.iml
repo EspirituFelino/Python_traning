@@ -3,8 +3,10 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/env" />
+      <excludeFolder url="file://$MODULE_DIR$/env2" />
+      <excludeFolder url="file://$MODULE_DIR$/env3" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.13 (Python_traning)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.9 (Python_traning)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TestRunnerService">
