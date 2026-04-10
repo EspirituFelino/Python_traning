@@ -44,7 +44,7 @@ class Contact:
         else:
             return maxsize
     def clear_like_homepage(self,s):
-        return re.sub("[() -]", "", s)
+        return re.sub("[./() -]", "", s)
 
     def filter_empty_fields(self,lst):
         return filter(lambda x: x != '',
@@ -56,4 +56,10 @@ class Contact:
                              self.filter_empty_fields([self.homephone, self.mobilephone, self.workphone, self.secondaryphone])))
 
     def merge_emails_like_homepage(self):
-        return "\n".join(self.filter_empty_fields([self.email, self.email2, self.email3]))
+        return "\n".join(self.filter_empty_fields(map(lambda x: x.strip(),
+                                                      [self.email, self.email2, self.email3])))
+
+    def address_like_homepage(self):
+        if self.address is None:
+            return ''
+        return self.address.strip()
