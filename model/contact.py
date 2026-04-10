@@ -8,7 +8,7 @@ class Contact:
                  email=None, email2=None, email3=None, company=None, title=None, address=None, id=None, phones=None,
                  workphone=None, mobilephone=None, secondaryphone=None,
                  homepage=None, nickname=None,
-                 all_phones_from_homepage=None, all_emails_from_homepage=None):
+                 all_phones_from_homepage=None, all_emails_from_homepage=None, groups=None):
         self.id = id
         self.first_name = first_name
         self.middle_name = middle_name
@@ -28,6 +28,7 @@ class Contact:
         self.phones = phones
         self.all_phones_from_homepage = all_phones_from_homepage
         self.all_emails_from_homepage = all_emails_from_homepage
+        self.groups = groups
 
 
     def __repr__(self):

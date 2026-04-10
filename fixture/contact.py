@@ -88,8 +88,6 @@ class ContactHelper:
 
     def init_edit_contact_by_id(self, id):
         wd = self.app.wd
-        # wd.find_elements_by_xpath("//img[@alt='Edit']")[index].click()
-        # wd.find_element_by_xpath(f"//input[@value={id}]/..//img[@alt='Edit']").click()
         wd.find_element_by_xpath(f"//tr[.//input[@value='{id}']]//img[@alt='Edit']").click()
 
     def edit_first_contact(self):
@@ -158,3 +156,29 @@ class ContactHelper:
         wd = self.app.wd
         self.app.return_home_page()
         wd.find_elements_by_xpath("//img[@alt='Details']")[index].click()
+
+    def add_selected_in_group_by_id(self, id):
+        wd = self.app.wd
+        self.app.return_home_page()
+        wd.find_element_by_xpath(f'//select[@name="to_group"]').click()
+        wd.find_element_by_xpath(f'//select[@name="to_group"]/option[@value="{id}"]').click()
+        wd.find_element_by_xpath(f'//input[@value="Add to"]').click()
+
+
+    def add_contact_in_group(self, contact, group):
+        self.app.return_home_page()
+        self.select_contact_by_id(contact.id)
+        self.add_selected_in_group_by_id(group.id)
+
+    def delete_contact_from_group(self,contact,group):
+        wd = self.app.wd
+        self.app.return_home_page()
+        self.show_contacts_in_group(group)
+        self.select_contact_by_id(contact.id)
+        wd.find_element_by_name("remove").click()
+
+    def show_contacts_in_group(self, group):
+        wd = self.app.wd
+        self.app.return_home_page()
+        wd.find_element_by_xpath(f'//select[@name="group"]').click()
+        wd.find_element_by_xpath(f'//select[@name="group"]/option[@value="{group.id}"]').click()
