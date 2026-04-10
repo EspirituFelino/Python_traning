@@ -8,7 +8,7 @@ def test_add_contact_in_group(app, db):
         app.group.create(Group(name="test"))
     if len(db.get_contact_list()) == 0:
         app.contact.create(Contact(firstname="test"))
-    contact = random.choice(db.get_contact_list())
     group = random.choice(db.get_group_list())
+    contact = random.choice(db.get_contacts_not_in_group(group))
     app.contact.add_contact_in_group(contact, group)
     assert contact in db.get_contacts_in_group(group)
