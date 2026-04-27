@@ -1,6 +1,7 @@
+urllib3==1.26.16
 pytest
 pytest-bdd
-selenium
+selenium==3.141.0
 jsonpickle
 pony
 pymysql
