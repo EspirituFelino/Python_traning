@@ -1,0 +1,83 @@
+Started by user [8mha:////4AvdKZQ3vS04liVKqGdj01bZMAlpiDInSBMo/Y3I2YO5AAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace C:\Users\shikin_mi\.jenkins\workspace\addressbook bdd tests
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\Users\shikin_mi\.jenkins\workspace\addressbook bdd tests\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/EspirituFelino/Python_traning # timeout=10
+Fetching upstream changes from https://github.com/EspirituFelino/Python_traning
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.53.0.windows.1'
+ > git.exe fetch --tags --force --progress -- https://github.com/EspirituFelino/Python_traning +refs/heads/*:refs/remotes/origin/* # timeout=10
+Seen branch in repository origin/main
+Seen 1 remote branch
+ > git.exe show-ref --tags -d # timeout=10
+Checking out Revision adb5a0747be27b943a35aee401e8678b2947a3ce (origin/main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f adb5a0747be27b943a35aee401e8678b2947a3ce # timeout=10
+Commit message: "Скорректированы bdd тесты"
+ > git.exe rev-list --no-walk adb5a0747be27b943a35aee401e8678b2947a3ce # timeout=10
+[addressbook bdd tests] $ cmd.exe /c call C:\Users\SHIKIN~1\AppData\Local\Temp\shiningpanda14635405029028012207.bat
+
+C:\Users\shikin_mi\.jenkins\workspace\addressbook bdd tests>pip install -r requirements.txt 
+Requirement already satisfied: urllib3==1.26.16 in c:\users\shikin_mi\.jenkins\shiningpanda\jobs\52b83487\virtualenvs\d41d8cd9\lib\site-packages (from -r requirements.txt (line 1)) (1.26.16)
+Requirement already satisfied: pytest in c:\users\shikin_mi\.jenkins\shiningpanda\jobs\52b83487\virtualenvs\d41d8cd9\lib\site-packages (from -r requirements.txt (line 2)) (8.4.2)
+Requirement already satisfied: pytest-bdd in c:\users\shikin_mi\.jenkins\shiningpanda\jobs\52b83487\virtualenvs\d41d8cd9\lib\site-packages (from -r requirements.txt (line 3)) (8.1.0)
+Requirement already satisfied: selenium==3.141.0 in c:\users\shikin_mi\.jenkins\shiningpanda\jobs\52b83487\virtualenvs\d41d8cd9\lib\site-packages (from -r requirements.txt (line 4)) (3.141.0)
+Requirement already satisfied: jsonpickle in c:\users\shikin_mi\.jenkins\shiningpanda\jobs\52b83487\virtualenvs\d41d8cd9\lib\site-packages (from -r requirements.txt (line 5)) (4.1.1)
+Requirement already satisfied: pony in c:\users\shikin_mi\.jenkins\shiningpanda\jobs\52b83487\virtualenvs\d41d8cd9\lib\site-packages (from -r requirements.txt (line 6)) (0.7.19)
+Requirement already satisfied: pymysql in c:\users\shikin_mi\.jenkins\shiningpanda\jobs\52b83487\virtualenvs\d41d8cd9\lib\site-packages (from -r requirements.txt (line 7)) (1.1.2)
+Requirement already satisfied: colorama>=0.4 in c:\users\shikin_mi\.jenkins\shiningpanda\jobs\52b83487\virtualenvs\d41d8cd9\lib\site-packages (from pytest->-r requirements.txt (line 2)) (0.4.6)
+Requirement already satisfied: exceptiongroup>=1 in c:\users\shikin_mi\.jenkins\shiningpanda\jobs\52b83487\virtualenvs\d41d8cd9\lib\site-packages (from pytest->-r requirements.txt (line 2)) (1.3.1)
+Requirement already satisfied: iniconfig>=1 in c:\users\shikin_mi\.jenkins\shiningpanda\jobs\52b83487\virtualenvs\d41d8cd9\lib\site-packages (from pytest->-r requirements.txt (line 2)) (2.1.0)
+Requirement already satisfied: packaging>=20 in c:\users\shikin_mi\.jenkins\shiningpanda\jobs\52b83487\virtualenvs\d41d8cd9\lib\site-packages (from pytest->-r requirements.txt (line 2)) (26.2)
+Requirement already satisfied: pluggy<2,>=1.5 in c:\users\shikin_mi\.jenkins\shiningpanda\jobs\52b83487\virtualenvs\d41d8cd9\lib\site-packages (from pytest->-r requirements.txt (line 2)) (1.6.0)
+Requirement already satisfied: pygments>=2.7.2 in c:\users\shikin_mi\.jenkins\shiningpanda\jobs\52b83487\virtualenvs\d41d8cd9\lib\site-packages (from pytest->-r requirements.txt (line 2)) (2.20.0)
+Requirement already satisfied: tomli>=1 in c:\users\shikin_mi\.jenkins\shiningpanda\jobs\52b83487\virtualenvs\d41d8cd9\lib\site-packages (from pytest->-r requirements.txt (line 2)) (2.4.1)
+Requirement already satisfied: Mako in c:\users\shikin_mi\.jenkins\shiningpanda\jobs\52b83487\virtualenvs\d41d8cd9\lib\site-packages (from pytest-bdd->-r requirements.txt (line 3)) (1.3.11)
+Requirement already satisfied: gherkin-official<30.0.0,>=29.0.0 in c:\users\shikin_mi\.jenkins\shiningpanda\jobs\52b83487\virtualenvs\d41d8cd9\lib\site-packages (from pytest-bdd->-r requirements.txt (line 3)) (29.0.0)
+Requirement already satisfied: parse in c:\users\shikin_mi\.jenkins\shiningpanda\jobs\52b83487\virtualenvs\d41d8cd9\lib\site-packages (from pytest-bdd->-r requirements.txt (line 3)) (1.21.1)
+Requirement already satisfied: parse-type in c:\users\shikin_mi\.jenkins\shiningpanda\jobs\52b83487\virtualenvs\d41d8cd9\lib\site-packages (from pytest-bdd->-r requirements.txt (line 3)) (0.6.6)
+Requirement already satisfied: typing-extensions in c:\users\shikin_mi\.jenkins\shiningpanda\jobs\52b83487\virtualenvs\d41d8cd9\lib\site-packages (from pytest-bdd->-r requirements.txt (line 3)) (4.15.0)
+Requirement already satisfied: MarkupSafe>=0.9.2 in c:\users\shikin_mi\.jenkins\shiningpanda\jobs\52b83487\virtualenvs\d41d8cd9\lib\site-packages (from Mako->pytest-bdd->-r requirements.txt (line 3)) (3.0.3)
+Requirement already satisfied: six>=1.15 in c:\users\shikin_mi\.jenkins\shiningpanda\jobs\52b83487\virtualenvs\d41d8cd9\lib\site-packages (from parse-type->pytest-bdd->-r requirements.txt (line 3)) (1.17.0)
+
+C:\Users\shikin_mi\.jenkins\workspace\addressbook bdd tests>py.test --cucumberjson=results.json --junit-xml=results.xml bdd 
+============================= test session starts =============================
+platform win32 -- Python 3.9.13, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\shikin_mi\.jenkins\workspace\addressbook bdd tests
+plugins: bdd-8.1.0
+collected 7 items
+
+bdd\test_contact_scenarios.py ....                                       [ 57%]
+bdd\test_group_scenarios.py ...                                          [100%]
+
+============================== warnings summary ===============================
+bdd/test_contact_scenarios.py: 151 warnings
+bdd/test_group_scenarios.py: 82 warnings
+  c:\users\shikin_mi\.jenkins\shiningpanda\jobs\52b83487\virtualenvs\d41d8cd9\lib\site-packages\selenium\webdriver\remote\remote_connection.py:418: DeprecationWarning: HTTPResponse.getheader() is deprecated and will be removed in urllib3 v2.1.0. Instead use HTTPResponse.headers.get(name, default).
+    if resp.getheader('Content-Type') is not None:
+
+bdd/test_contact_scenarios.py: 151 warnings
+bdd/test_group_scenarios.py: 82 warnings
+  c:\users\shikin_mi\.jenkins\shiningpanda\jobs\52b83487\virtualenvs\d41d8cd9\lib\site-packages\selenium\webdriver\remote\remote_connection.py:419: DeprecationWarning: HTTPResponse.getheader() is deprecated and will be removed in urllib3 v2.1.0. Instead use HTTPResponse.headers.get(name, default).
+    content_type = resp.getheader('Content-Type').split(';')
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated json file: C:\Users\shikin_mi\.jenkins\workspace\addressbook bdd tests\results.json -
+- generated xml file: C:\Users\shikin_mi\.jenkins\workspace\addressbook bdd tests\results.xml -
+====================== 7 passed, 466 warnings in 12.92s =======================
+
+C:\Users\shikin_mi\.jenkins\workspace\addressbook bdd tests>exit 0 
+[CucumberReport] Using Cucumber Reports version 5.11.0
+[CucumberReport] JSON report directory is ""
+[CucumberReport] Copied 0 properties files from workspace "C:\Users\shikin_mi\.jenkins\workspace\addressbook bdd tests" to reports directory "C:\Users\shikin_mi\.jenkins\jobs\addressbook bdd tests\builds\3\cucumber-html-reports\.cache"
+[CucumberReport] Copied 1 files from workspace "C:\Users\shikin_mi\.jenkins\workspace\addressbook bdd tests" to reports directory "C:\Users\shikin_mi\.jenkins\jobs\addressbook bdd tests\builds\3\cucumber-html-reports\.cache"
+[CucumberReport] Processing 1 json files:
+[CucumberReport] C:\Users\shikin_mi\.jenkins\jobs\addressbook bdd tests\builds\3\cucumber-html-reports\.cache\results.json
+[Cucumber Tests] Parsing results.
+[Cucumber Tests] parsing results.json
+Recording test results
+[Checks API] No suitable checks publisher found.
+Finished: SUCCESS
