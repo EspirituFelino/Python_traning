@@ -1,3 +1,4 @@
+Feature: Contact Management
 Scenario Outline: Add a new contact
   Given a contact list
   Given a contact with <first_name>, <last_name>, <workphone>, <email>, <address>
